@@ -1,0 +1,81 @@
+<html>
+<head>
+    <meta charset="utf-8"/>
+    <title>shoppingCar</title>
+    <link rel="stylesheet" href="style/reset.css"/>
+    <link rel="stylesheet" href="style/main.css"/>
+    <link rel="stylesheet" href="font/fonts/font.css"/>
+    <link rel="stylesheet" href="style/bg-color.css"/>
+    <link rel="stylesheet" href="style/style1.css"/>
+    <link rel="stylesheet" href="components/modal-dialogue/style.css">
+    <!-- override parent property -->
+    <style>
+        body {
+            height: initial;
+            position: relative;
+            min-width: 720px;
+            -webkit-user-select: none;
+        }
+    </style>
+</head>
+<body>
+<div id="container">
+    <div id="shoppingCar">
+        <modal-dialogue title="真的要刪除？" message="刪除後無法復原！"
+        yes-text="刪除" no-text="取消"></modal-dialogue>
+        <header class="title-wrap"><span class="line-v"></span><span class="title">購物車</span><span
+                class="line-v"></span></header>
+        <form>
+            <table class="detial-wrap">
+                <tr>
+                    <th>商品訊息</th>
+                    <th>商品金額</th>
+                    <th>商品數量</th>
+                    <th>總金額</th>
+                    <th>編輯</th>
+                </tr>
+                <tr v-for="item in cartList">
+                    <td class="goods-detial-wrap">
+                        <div class="checkbox-wrap left"><span class="checkbox" :class="{'checked': item.isChecked}" @click="toggleItem(item)" @onselect="toggleItem(item)"></span></div>
+                        <div class="goods-detial right">
+                            <div class="good-img left"><img src="img/test.jpg"/></div>
+                            <div class="good-text left">
+                                <div class="name" v-text="item.name">喵星人</div>
+                                <dl class="gifts" v-for="(part, index) in item.parts">
+                                    <dt :style="{visibility: index == 0 ? 'visible' : 'hidden'}" >贈送：</dt>
+                                    <dd v-text="part">萌萌</dd>
+                                </dl>
+                            </div>
+                        </div>
+                    </td>
+                    <td class="unitprice" v-text="item.price">19</td>
+                    <td class="buy-num">
+                        <div class="choosenum-handler"><i class="icon-minus"  @click="changeQuantity(item, -1)"></i>
+                            <span class="countbox" v-text="item.quantity">2</span>
+                            <i class="icon-plus" @click="changeQuantity(item, 1)"></i></div>
+                        <div class="stock onsell"></div>
+                    </td>
+                    <td class="amount" v-text="getPrice(item)"></td>
+                    <td class="icon icon-delete" @click="requestDeletion(item)"></td>
+                </tr>
+            </table>
+            <footer class="checkout-wrap">
+                <div class="total-check-wrap left">
+                    <div class="checkbox-wrap left"><span class="checkbox" :class="{checked: isAllChecked}" @click="toggleAllItems()"></span></div>
+                    <div class="check-text"><span class="checked-all" @click="checkAllItems(true)">全選</span><span class="unchecked-all" @click="checkAllItems(false)">取消全選</span>
+                    </div>
+                </div>
+                <div class="checkout right">
+                    <div class="total-money"><span class="name" >總金額 :</span><span class="amount" v-text="totalMoney">5元</span></div>
+                    <input type="submit" value="結賬" class="danger"/>
+                </div>
+            </footer>
+        </form>
+    </div>
+</div>
+</body>
+<script type="text/javascript" src="scripts/vue.js"></script>
+<script type="text/javascript" src="scripts/vue-resource.js"></script>
+<script type="module" src="components/app.js"></script>
+<script type="module" src="components/modal-dialogue/script.js"></script>
+</html>

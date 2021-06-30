@@ -1,0 +1,5 @@
+常用的 debug expression 來 navigate vue dom
+mdWrapper.$el
+mdWrapper.$children[0].toggleModal()
+vm.方法()
+vm.$data.屬性

@@ -1,0 +1,44 @@
+[
+    {
+        "name": "恭喜你，成功解析了.json的mock data"
+        , "price": 1000
+        , "quantity": 1
+        , "parts": ["第一步","成功"]
+    }   , {
+        "name": "小爆蝦"
+        , "price": 30
+        , "quantity": 10
+        , "parts": ["艾露西","烏賊娘"]
+    }   , {
+        "name": "鄉村蝙蝠俠"
+        , "price": 328
+        , "quantity": 1
+        , "parts": ["vip", "吉祥三寶"]
+
+    }   , {
+        "name": "屠龍寶刀"
+        , "price": 988
+        , "quantity": 1
+        , "parts": ["托爾", "康娜"]
+    }   , {
+        "name": "Bug"
+        , "price": 1
+        , "quantity": 1
+        , "parts": ["Ubi Soft", "Ubi Soft", "Ubi Soft", "Ubi Soft"]
+    }   , {
+        "name": "女裝"
+        , "price": 666
+        , "quantity": 1
+        , "parts": ["山脈", "海峽"]
+    }   , {
+        "name": "Ｃ語言從入門到入土"
+        , "price": 20
+        , "quantity": 1
+        , "parts": ["入院", "入獄"]
+    }   , {
+        "name": "喵星人"
+        , "price": 20
+        , "quantity": 1
+        , "parts": ["喵～", "抓～"]
+    }
+]
